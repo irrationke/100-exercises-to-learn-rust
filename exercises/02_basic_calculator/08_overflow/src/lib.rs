@@ -10,6 +10,7 @@ pub fn factorial(n: u32) -> u32 {
     for i in 1..=n {
         result *= i;
     }
+    println!("{}", result);
     result
 }
 
@@ -23,7 +24,7 @@ mod tests {
         // With the default dev profile, this will panic when you run `cargo test`
         // We want it to wrap around instead
         assert_eq!(factorial(20), 2_192_834_560);
-        //                           ☝️
+        //                           ☝️😊(❁´◡`❁)(●'◡'●)👍(￣y▽,￣)╭ ⨜
         // A large number literal using underscores to improve readability!
     }
 
