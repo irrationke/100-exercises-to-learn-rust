@@ -1,4 +1,5 @@
 // TODO: Re-implement `Ticket`'s accessor methods. This time return a `&str` rather than a `&String`.
+// TODO：重新实现 `Ticket` 的访问器方法。这次返回 `&str` 而不是 `&String`。
 
 pub struct Ticket {
     title: String,
@@ -31,16 +32,16 @@ impl Ticket {
         }
     }
 
-    pub fn title(&self) -> &String {
-        &self.title
+    pub fn title(&self) -> &str {
+        &self.title[0..]
     }
 
-    pub fn description(&self) -> &String {
-        &self.description
+    pub fn description(&self) -> &str {
+        &self.description[0..]
     }
 
-    pub fn status(&self) -> &String {
-        &self.status
+    pub fn status(&self) -> &str {
+        &self.status[0..]
     }
 }
 
@@ -54,6 +55,7 @@ mod tests {
     fn test_type() {
         let ticket = Ticket::new(valid_title(), valid_description(), "To-Do".to_string());
         // Some dark magic to verify that you used the expected return types
+        // 一些黑魔法来验证您是否使用了预期的返回类型
         assert_eq!(TypeId::of::<str>(), ticket.title().type_id());
         assert_eq!(TypeId::of::<str>(), ticket.description().type_id());
         assert_eq!(TypeId::of::<str>(), ticket.status().type_id());

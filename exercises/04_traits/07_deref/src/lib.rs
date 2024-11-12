@@ -4,6 +4,11 @@
 //   find it in the documentation for `String`.
 //   Can you figure out where it is defined and how to use it?
 
+// TODO：每当通过其访问器方法返回 `title` 和 `description` 时，它们
+// 都应该被规范化 - 即应该删除前导和尾随空格。
+// Rust 的标准库中有一种方法可以帮助解决这个问题，但你不会
+// 在 `String` 的文档中找到它。
+// 你能弄清楚它在哪里定义以及如何使用它吗？
 pub struct Ticket {
     title: String,
     description: String,
@@ -12,11 +17,11 @@ pub struct Ticket {
 
 impl Ticket {
     pub fn title(&self) -> &str {
-        todo!()
+        &self.title.trim()
     }
 
     pub fn description(&self) -> &str {
-        todo!()
+        &self.description.trim()
     }
 }
 

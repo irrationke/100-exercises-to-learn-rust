@@ -8,13 +8,28 @@
 // print both sides of the comparison to the terminal.
 // If the compared type doesn't implement `Debug`, it doesn't know how to represent them!
 
+// TODO：缺少 (可派生的) 特征实现，此练习无法成功编译。
+// 修复它！
+//
+// # `Debug` 入门
+//
+// `Debug` 返回适合调试的 Rust 类型的表示形式（因此得名）。
+// `assert_eq!` 需要 `Ticket` 实现 `Debug`，因为当断言失败时，它会尝试
+// 将比较的两边打印到终端。
+// 如果比较的类型没有实现 `Debug`，它就不知道如何表示它们！
 #[derive(PartialEq)]
+#[derive(Debug)]
 struct Ticket {
     title: String,
     description: String,
     status: String,
 }
+// impl Debug for Ticket {
+//     fn assert_eq!(&self, other: &self) -> bool {
+//         println!("{}");
 
+//     }
+// }
 #[cfg(test)]
 mod tests {
     use super::*;
